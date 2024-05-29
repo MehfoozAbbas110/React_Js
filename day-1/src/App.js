@@ -5,6 +5,8 @@ import Home from "./Component/Home"
 import Login from './Component/Login';
 import Register from './Component/Register';
 import Mens from './Component/Mens';
+import UseState from './Usestate/useState';
+import NotFound from './Usestate/notfound';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path= "/login" element={<Login />} />
         <Route path= "/register" element={<Register />} />
         <Route path= "/mens" element={<Mens />} />
+        <Route path="/use-State" element= {< UseState />}/>
+        <Route path="*" element={<NotFound/>}/>
 
       </Routes>
     </div>
@@ -21,3 +25,5 @@ function App() {
 }
 
 export default App;
+
+
