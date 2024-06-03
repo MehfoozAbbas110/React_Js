@@ -9,7 +9,7 @@ import UseState from './Usestate/useState';
 import NotFound from './Usestate/notfound';
 import UseEffect1 from './UseEffect/UseEffect1';
 import UseEffect2 from './UseEffect/UseEffect2';
-
+import AllProduct from './AllProduct/AllProduct';
 function App() {
   return (
     <div className="App">
@@ -22,6 +22,7 @@ function App() {
         <Route path="*" element={<NotFound/>}/>
         <Route path="/use-effect1" element={< UseEffect1 />} />
         <Route path="/use-effect2" element={< UseEffect2 />} />
+        <Route path="/AllProduct" element={< AllProduct />} />
 
 
       </Routes>
