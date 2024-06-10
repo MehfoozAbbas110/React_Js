@@ -10,6 +10,8 @@ import NotFound from './Usestate/notfound';
 import UseEffect1 from './UseEffect/UseEffect1';
 import UseEffect2 from './UseEffect/UseEffect2';
 import AllProduct from './AllProduct/AllProduct';
+import Todo from './Todo/Todo';
+import Registerr from "./Register/Registerr";
 function App() {
   return (
     <div className="App">
@@ -23,7 +25,9 @@ function App() {
         <Route path="/use-effect1" element={< UseEffect1 />} />
         <Route path="/use-effect2" element={< UseEffect2 />} />
         <Route path="/AllProduct" element={< AllProduct />} />
-
+        <Route path="/todo" element={< Todo/>} />
+        <Route path="/user-register" element={< Registerr />} />
+        
 
       </Routes>
     </div>
