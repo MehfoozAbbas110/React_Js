@@ -12,6 +12,7 @@ import UseEffect2 from './UseEffect/UseEffect2';
 import AllProduct from './AllProduct/AllProduct';
 import Todo from './Todo/Todo';
 import Registerr from "./Register/Registerr";
+import SignIn from "./SignIn/Signin";
 function App() {
   return (
     <div className="App">
@@ -27,6 +28,7 @@ function App() {
         <Route path="/AllProduct" element={< AllProduct />} />
         <Route path="/todo" element={< Todo/>} />
         <Route path="/user-register" element={< Registerr />} />
+        <Route path="/signin" element={< SignIn />} />
         
 
       </Routes>

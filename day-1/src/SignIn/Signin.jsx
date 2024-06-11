@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
-const Registerr = () => {
+const SignIn = () => {
   const router = useNavigate();
   const [userData, setUserData] = useState({
-    name: "",
     email: "",
     password: "",
   });
@@ -21,18 +20,17 @@ const Registerr = () => {
     e.preventDefault();
     // api call to backend
     try {
-      if (userData.name && userData.email && userData.password) {
+      if (userData.email && userData.password) {
         //   const response = await axios.post("https://awdiz-7/api/v1/user/register" , {userData});
         const response = {
-          data: { success: true, message: "Regsiter successfull." },
+          data: { success: true, message: "SignIn successfull." },
         };
         if (response.data.success) {
           setUserData({
-            name: "",
             email: "",
             password: "",
           });
-          router("/user-register");
+          router("/signin");
           toast.success(response.data.message);
         }
       } else {
@@ -50,16 +48,7 @@ const Registerr = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>Register</h1>
-        <label>Name : </label>
-        <br />
-        <input
-          type="text"
-          onChange={handleChange}
-          name="name"
-          value={userData.name}
-        />
-        <br />
+        <h1>Sign In</h1>
         <label>Email : </label>
         <br />
         <input
@@ -78,11 +67,11 @@ const Registerr = () => {
           value={userData.password}
         />
         <br />
-        <input type="submit" value="Register" />
+        <input type="submit" value="SignIn" />
         <br />
       </form>
     </div>
   );
 };
 
-export default Registerr;
+export default SignIn;
