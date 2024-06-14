@@ -14,7 +14,7 @@ import Todo from './Todo/Todo';
 import Registerr from "./Register/Registerr";
 import SignIn from "./SignIn/Signin";
 import Wheather from "./Wheather/Wheather";
-
+import Temperature from "./Temparature/Temprature";
 
 function App() {
   return (
@@ -33,6 +33,8 @@ function App() {
         <Route path="/user-register" element={< Registerr />} />
         <Route path="/signin" element={< SignIn />} />
         <Route path="/wheather" element={< Wheather />} />
+        <Route path="/temp" element={< Temperature />} />
+
         
 
       </Routes>
