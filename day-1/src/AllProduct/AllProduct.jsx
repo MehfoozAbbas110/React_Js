@@ -4,12 +4,15 @@ import "./AllProduct.css";
 function AllProduct(){ 
 
     const [allproducts, setallproducts]=useState([]);
+    const[loader, setLoader]=useState(false);
 
 async function GetProducts(){
+    setLoader(true);
 
 try{
     const response= await axios.get("https://fakestoreapi.com/products")
-    console.log(response);
+    setLoader(false);
+    // console.log(response);
     setallproducts(response.data);
 }
 
