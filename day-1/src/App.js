@@ -15,6 +15,7 @@ import Registerr from "./Register/Registerr";
 import SignIn from "./SignIn/Signin";
 import Wheather from "./Wheather/Wheather";
 import Temperature from "./Temparature/Temprature";
+import Reducer from './Reducer/Reducer';
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
         <Route path="/signin" element={< SignIn />} />
         <Route path="/wheather" element={< Wheather />} />
         <Route path="/temp" element={< Temperature />} />
-
+        <Route path="/reducer" element={< Reducer />} />
         
 
       </Routes>

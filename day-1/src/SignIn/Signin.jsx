@@ -1,77 +1,101 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import { authcontext } from "../Context/Authcontext";
 
-const SignIn = () => {
+const Login = () => {
+  const { state, dispatch } = useContext(authcontext);
   const router = useNavigate();
-  const [userData, setUserData] = useState({
-    email: "",
-    password: "",
-  });
-
-  console.log(userData, "userData");
-  function handleChange(event) {
+  const [userData, setUserData] = useState({ email: "", password: "" });
+  const [errors, setErrors] = useState([]);
+  const [disable, setDisable] = useState(true);
+  console.log(errors, "errors");
+  console.log(userData, "userdata");
+  function handlechange(event) {
     // console.log(event.target.value, event.target.name);
     setUserData({ ...userData, [event.target.name]: event.target.value });
-    // Obj["awdiz"]
   }
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    // api call to backend
+  async function handleSubmit(event) {
+    event.preventDefault();
+
     try {
       if (userData.email && userData.password) {
-        //   const response = await axios.post("https://awdiz-7/api/v1/user/register" , {userData});
+        // toast.success("Registration Successfull. Go for Login")
         const response = {
-          data: { success: true, message: "SignIn successfull." },
+          data: {
+            success: true,
+            message: "LOGIN Successfull.",
+            // userData: { name: "Mehfooz" },
+          },
         };
+
         if (response.data.success) {
-          setUserData({
-            email: "",
-            password: "",
-          });
-          router("/signin");
+          dispatch({ type: "LOGIN", payload: response.data.userData });
+          setUserData({ email: "", password: "" });
+          router("/");
           toast.success(response.data.message);
+
         }
       } else {
-        // throw Error("All fields are mandatory.");
-        toast.error("All fields are mandatory.");
+        toast.error("All fields are mandatory");
       }
-    } catch (error) {
-      console.log(error, "error");
-      //   console.log(error);
-      //   error =  { data : { success : false, message : "Password is invalid."}}
-      toast.error(error.response.data.message);
-    }
+    } catch (error) {}
   }
+
+  useEffect(() => {
+    const errorsArray = [];
+
+    if (!userData.email) {
+      errorsArray.push("Email is required");
+    }
+    if (!userData.password) {
+      errorsArray.push("Password is required");
+    }
+    setErrors(errorsArray);
+    console.log(errors.length, "error.length");
+    if (errorsArray.length == 0) {
+      setDisable(false);
+    } else {
+      setDisable(true);
+    }
+  }, [userData]);
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <h1>Sign In</h1>
-        <label>Email : </label>
+      <form action="" onSubmit={handleSubmit}>
+        <h1>LOGIN</h1>
+        <label htmlFor="">Email: </label>
         <br />
         <input
           type="email"
-          onChange={handleChange}
+          onChange={handlechange}
           name="email"
+          id=""
           value={userData.email}
-        />
+        />{" "}
         <br />
-        <label>Password : </label>
+        <label htmlFor="">Password: </label>
         <br />
         <input
           type="password"
-          onChange={handleChange}
+          onChange={handlechange}
           name="password"
+          id=""
           value={userData.password}
-        />
+        />{" "}
         <br />
-        <input type="submit" value="SignIn" />
-        <br />
+        {errors.length > 0 && (
+          <div>
+            {errors.map((error, i) => (
+              <p key={i}>{error}* </p>
+            ))}
+          </div>
+        )}
+        <input disabled={disable} type="submit" value="LOGIN" /> <br />
       </form>
     </div>
   );
 };
 
-export default SignIn;
+export default Login;
