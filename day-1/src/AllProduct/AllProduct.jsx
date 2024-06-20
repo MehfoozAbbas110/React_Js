@@ -30,7 +30,7 @@ useEffect(()=>{
             <h1>All Products</h1>
             <div class="body">
                 {allproducts.map((prod)=>(
-                    <div id="box" >
+                    <div id="box1" >
                     <img src={prod.image}/>
                     <div id="content">
                     <p>Title: {prod.title} </p>

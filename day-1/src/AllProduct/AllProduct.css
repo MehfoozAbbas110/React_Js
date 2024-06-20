@@ -14,7 +14,7 @@
     flex-wrap: wrap;
 }
 
-#box{
+#box1{
 
     border: 2px solid black;
     width: 22%;
@@ -23,7 +23,7 @@
     background-color: whitesmoke;
 }
 
-#box img{
+#box1 img{
 
     width: 270px;
     height: 250px;
