@@ -6,9 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import { Toaster } from 'react-hot-toast';
 import MyContextProvider from "./Context/Authcontext";
+import ThemeContextProvider from './ThemeContext/Theme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <ThemeContextProvider>
   <MyContextProvider>
   <BrowserRouter>
     <Toaster
@@ -39,5 +41,6 @@ root.render(
     <App />
   </BrowserRouter>
   </MyContextProvider>
+  </ThemeContextProvider>
 );
 
