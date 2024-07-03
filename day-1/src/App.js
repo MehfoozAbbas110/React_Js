@@ -14,6 +14,8 @@ import Todo from './Todo/Todo';
 import Registerr from "./Register/Registerr";
 import SignIn from "./SignIn/Signin";
 import Reducer from './Reducer/Reducer';
+import UseRefComponent from './30June_useRef/UseRefComponent';
+import UseRef2Component from './30June_useRef/UseRef2Component';
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
         <Route path="/user-register" element={< Registerr />} />
         <Route path="/signin" element={< SignIn />} />
         <Route path="/reducer" element={< Reducer />} />
+        <Route path="/use-ref" element={< UseRefComponent/>} />
+        <Route path="/use-ref2" element={< UseRef2Component/>} />
         
 
       </Routes>
